@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int findFinalValue(vector<int>& nums, int original) {
+        int n;
+        std::vector<int>::iterator it;
+        while(n){
+           it = std::find(nums.begin(),nums.end(),original);
+            
+           if (it != nums.end())original = original*2;
+            else break;
+            n++;
+        }
+        return original;
+        
+    }
