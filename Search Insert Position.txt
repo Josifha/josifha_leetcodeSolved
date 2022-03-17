@@ -1,0 +1,10 @@
+class Solution {
+public:
+int searchInsert(vector& nums, int target) {
+int j;
+for (int i=0;i<nums.size();i++){
+if(target<nums[i] || nums[i]==target) return i;
+}
+return nums.size();
+}
+};
