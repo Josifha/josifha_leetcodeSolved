@@ -1,0 +1,34 @@
+Method 1(Copying into another Vector)
+------------------------------------------------------
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+       int n=s.size()-1;
+       vector<char> j;j = s;s.clear();
+       while(n>=0) {s.push_back(j[n]);n-=1;}
+    }
+};
+
+Method 2(Swapping)
+-----------------------------------------------------
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+       int n=s.size()-1;
+       for(int i=0;i<=(s.size()-1)/2;i++){
+            swap(s[i],s[n]);
+            n--;
+       }
+    }
+};
+
+------------------------------------------------------
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+int start=0,end=s.size()-1;
+        while(start<=end){
+            swap(s[start++],s[end--]);
+        }
+       }
+};
