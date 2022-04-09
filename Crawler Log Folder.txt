@@ -1,0 +1,35 @@
+Method 1 (Using For Loop)
+
+class Solution {
+public:
+    int minOperations(vector<string>& logs) {
+           int j = logs.size(),i,count=0,ter;
+           for(i=0;i<j;i++){
+               if(logs[i]=="../") ter = (count==0)?count:count-=1;
+               else if(logs[i]=="./") count = count;
+               else count+=1;
+           }
+        if(count>=1) return count;
+        else return 0;
+    }
+};
+
+Method 2 (using Stack)
+
+class Solution {
+public:
+int minOperations(vector<string>& logs)
+        {
+        stack<string> jo;
+        for(auto x : logs)
+              {
+            if(x == "./") continue;
+            else if(x == "../")
+                {
+                if(jo.size()) jo.pop();
+               }
+            else jo.push(x);
+           }
+        return jo.size();
+        }
+    };
