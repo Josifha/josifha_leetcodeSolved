@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<int> sortArrayByParity(vector<int>& nums) {
+        int i,j=nums.size()-1,k=0;
+        
+        vector<int>n(nums.size()); 
+        
+        for(i=0;i<nums.size();i++){
+            
+              if(nums[i]%2==0) {n[k]=nums[i];k+=1;}
+            
+              else {n[j]=nums[i];j-=1;}
+             }
+        return n;
+    }
+};

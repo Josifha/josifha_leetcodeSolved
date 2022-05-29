@@ -1,0 +1,42 @@
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        int maxsize, maxlen;
+        int arr1[100] = {0}, arr2[100] = {0}, result[100] = {0};
+        int iter1 = 0, iter2 = 0;
+        while(l1 -> next != NULL){
+            arr1[iter1] = l1 -> val;
+            l1 = l1 -> next;
+            iter1++;
+        }
+        arr1[iter1] = l1 -> val;
+        while(l2 -> next != NULL){
+            arr2[iter2] = l2 -> val;
+            l2 = l2 -> next;
+            iter2++;
+        }
+        arr2[iter2] = l2 -> val;
+		
+        maxlen = (iter1 >= iter2) ? iter1 : iter2;
+		
+        for(int i = 0; i <= maxlen; i++)
+		{
+            result[i] += arr1[i] + arr2[i];//
+            if(result[i] >= 10){
+                string ayy = to_string(result[i]);
+                result[i+1] += 1;
+                result[i] = (int)ayy[1] - 48;
+            }
+        }
+        maxsize = (result[maxlen+1] != 0) ? maxlen+1 : maxlen;
+        ListNode *dummy = new ListNode();
+	    ListNode *temp = new ListNode();
+	    temp = dummy;
+        for(int i = 0; i <=maxsize; i++){
+             ListNode *newNode = new ListNode(result[i]);
+		     temp->next = newNode;
+		     temp = temp->next;
+        }
+        return dummy->next;
+    }
+};
